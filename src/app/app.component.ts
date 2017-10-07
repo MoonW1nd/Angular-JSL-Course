@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public title: string = 'Hi on Angular course';
+  public account: { age: number, name: string };
+  public experience: number = 2;
+  private _salary: number = 3000;
+
+  public getSalary(): number {
+    return this._salary;
+  }
 }
