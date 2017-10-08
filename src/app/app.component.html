@@ -16,9 +16,10 @@
 <!--</ul>-->
 
 <app-header>
-  <ng-template #search>
-    <div class="right-side">
-      <app-search></app-search>
-    </div>
-  </ng-template>
+  <img [src]="logo" [alt]="desc" [style.width.px]="width" (click)="clickOnImage()">
+  {{title}}
+  <div class="right-side">
+    <app-search [placeholder]="placeholder" (mySearch)="text=$event"></app-search>
+  </div>
 </app-header>
+{{text}}

@@ -6,12 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public title: string = 'Hi on Angular course';
-  public account: { age: number, name: string };
-  public experience: number = 2;
-  private _salary: number = 3000;
+  public title: string = 'Angular course';
+  public logo: string = 'assets/images/angular.png';
+  public width: number = 50;
+  public desc: string = 'its logo';
+  public placeholder: string = 'search term';
+  public text: string;
 
-  public getSalary(): number {
-    return this._salary;
+  public clickOnImage(): void {
+    // console.log('click');
   }
 }
