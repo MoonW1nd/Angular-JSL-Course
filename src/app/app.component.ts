@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { products$ } from './data/index';
 import { Observable } from 'rxjs/Observable';
-import { ProductsService } from './common/sevices/products.service';
+import { ProductsService } from './common/services/products.service';
 
 @Component({
   selector: 'app-root',

@@ -8,7 +8,11 @@ import { CardComponent } from './card/card.component';
 import { TooltipDirective } from './common/directives/tooltip.directive';
 import { ProductsFilterPipe } from './common/pipes/products-filter.pipe';
 import { SafeUrlPipe } from './common/pipes/safe-url.pipe';
-import { ProductsService } from './common/sevices/products.service';
+import { ProductsService } from './common/services/products.service';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { BASE_URL, BASE_URL_TOKEN } from './config';
+import { HttpService } from './common/services/http.service';
+import { AppInterceptorService } from './common/services/app-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -22,12 +26,28 @@ import { ProductsService } from './common/sevices/products.service';
   ],
   imports: [
     BrowserModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [
     {
-      provide: ProductsService,
-      useClass: ProductsService
+      provide: HttpClient,
+      useClass: HttpService
+    },
+    ProductsService,
+    {
+      provide: BASE_URL_TOKEN,
+      useValue: BASE_URL
+    },
+    {
+      provide: 'baseUrl',
+      useValue: 'localhost:5555',
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useValue: AppInterceptorService,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]
