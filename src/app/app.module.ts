@@ -8,6 +8,7 @@ import { CardComponent } from './card/card.component';
 import { TooltipDirective } from './common/directives/tooltip.directive';
 import { ProductsFilterPipe } from './common/pipes/products-filter.pipe';
 import { SafeUrlPipe } from './common/pipes/safe-url.pipe';
+import { ProductsService } from './common/sevices/products.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,12 @@ import { SafeUrlPipe } from './common/pipes/safe-url.pipe';
     BrowserModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ProductsService,
+      useClass: ProductsService
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
