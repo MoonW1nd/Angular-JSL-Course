@@ -1,21 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MdInputModule, MdToolbarModule } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule, MatToolbarModule } from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
-    MdToolbarModule,
-    MdInputModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    MatInputModule,
+    MatToolbarModule,
   ],
   exports: [
-    CommonModule,
-    MdToolbarModule,
-    MdInputModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    MatInputModule,
+    MatToolbarModule,
   ],
   declarations: []
 })
-export class MaterialModule { }
+export class MaterialModule {}
