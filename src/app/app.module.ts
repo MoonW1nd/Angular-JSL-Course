@@ -1,14 +1,17 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { MaterialModule } from './material/material.module';
+import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
 import { CardComponent } from './card/card.component';
 import { TooltipDirective } from './common/directives/tooltip.directive';
 import { ProductsFilterPipe } from './common/pipes/products-filter.pipe';
 import { SafeUrlPipe } from './common/pipes/safe-url.pipe';
 import { ProductsService } from './common/services/products.service';
+
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { BASE_URL, BASE_URL_TOKEN } from './config';
 import { HttpService } from './common/services/http.service';
@@ -22,7 +25,7 @@ import { AppInterceptorService } from './common/services/app-interceptor.service
     CardComponent,
     TooltipDirective,
     ProductsFilterPipe,
-    SafeUrlPipe
+    SafeUrlPipe,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,7 @@ import { AppInterceptorService } from './common/services/app-interceptor.service
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useValue: AppInterceptorService,
+      useClass: AppInterceptorService,
       multi: true
     }
   ],

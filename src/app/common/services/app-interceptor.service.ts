@@ -11,6 +11,7 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class AppInterceptorService implements HttpInterceptor {
+  // tslint:disable-next-line
   public intercept<T extends { data: any }>(req: HttpRequest<T>, next: HttpHandler): Observable<HttpEvent<T>> {
     const headers: HttpHeaders = req.headers.append('Content-Type', 'application/json');
     const jsonReq: HttpRequest<T> = req.clone({ headers });

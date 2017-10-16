@@ -3,7 +3,6 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
 import { BASE_URL_TOKEN } from '../../config';
 import { Observable } from 'rxjs/Observable';
 
-
 @Injectable()
 export class HttpService extends HttpClient {
 
@@ -14,7 +13,9 @@ export class HttpService extends HttpClient {
     super(handler);
   }
 
-  public customRequest(path: string): Observable<{}> {
-    return this.get(`${this._baseUrl}${path}`);
+
+  public customRequest(path: string): Observable<Product[]> {
+    return this.get<Product[]>(`${this._baseUrl}${path}`);
   }
+
 }
